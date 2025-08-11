@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>House Price Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="login">
+    <h1>Predict Your House Price</h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="number" step="any" name="size_sqft" placeholder="Enter House Size (sqft)" required="required" />
+      <input type="number" name="bedrooms" placeholder="Enter Number of Bedrooms" required="required" min="0" />
+      <input type="number" step="any" name="age" placeholder="Enter House Age (years)" required="required" min="0" />
+      <input type="radio" id="urban" name="location" value="1">
+  <label for="urban">Urban</label>
+
+  <input type="radio" id="rural" name="location" value="0">
+  <label for="rural">Rural</label>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict Price</button>
+    </form>
+
+    <br><br>
+    <h3>{{prediction_text }}</h2>
+
+  </div>
+</body>
+
+</html>

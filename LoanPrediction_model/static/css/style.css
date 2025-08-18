@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    color: #eeeeee;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1.2px;
+    margin: 0;
+    padding: 0;
+
+    background:
+        url('three.jpg') center/cover no-repeat fixed,
+        radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px),
+        radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px),
+        linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+    background-size:
+        cover,
+        /* house image */
+        550px 550px,
+        350px 350px,
+        250px 250px,
+        150px 150px,
+        100% 100%;
+    background-position:
+        center,
+        0 0, 40px 60px, 130px 270px, 70px 100px, 0 0;
+    background-attachment:
+        fixed,
+        /* keep house image fixed for subtle parallax */
+        scroll, scroll, scroll, scroll, scroll;
+    animation: backgroundShift 20s ease-in-out infinite;
+
+    /* Soften/contrast over photo for readability */
+    backdrop-filter: none;
+    /* body backdrop not needed; container uses blur */
+}
+
+/* Optional overlay for readability */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    /* Add a semi-transparent black overlay */
+    background: rgba(0, 0, 0, 0.45);  /* Increase the opacity for more dulling */
+    z-index: 0;
+}
+
+/* Glassmorphic compact form */
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    min-height: 340px;
+    background: rgba(15, 25, 35, 0.90); /* translucent to show blur */
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 22px 18px;
+    overflow: hidden;
+}
+
+.login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ffcc, transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.login h1 {
+    color: #00ffcc;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.33);
+    letter-spacing: 1.7px;
+    margin-bottom: 18px;
+    font-size: 21px;
+    /* quite compact */
+    font-weight: 400;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    margin-bottom: 12px;
+    background: rgba(24, 28, 44, 0.8);
+    border: 1px solid rgba(0, 255, 204, 0.16);
+    outline: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 13px;
+}
+
+input:focus {
+    border-color: #00ffcc;
+    background: rgba(25, 35, 45, 0.97);
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 11px 15px;
+    margin-top: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00ffcc 0%, #0099cc 100%);
+    box-shadow: 0 3px 9px rgba(0, 255, 204, 0.22);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0099cc 0%, #00ffcc 100%);
+    box-shadow: 0 8px 25px rgba(0, 255, 204, 0.34);
+    transform: translateY(-2px);
+}
+
+/* Compact radio buttons for 'Credit History' etc. */
+form label {
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    margin: 4px 0;
+    border: 1.2px solid #555;
+    border-radius: 7px;
+    cursor: pointer;
+    background: rgba(30, 40, 60, 0.6);
+    font-size: 12px;
+    font-weight: 500;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+form label::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border: 2px solid #00ffcc;
+    border-radius: 50%;
+    margin-right: 7px;
+    transition: all 0.3s ease;
+}
+
+form input[type="radio"]:checked+label {
+    border-color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.16);
+}
+
+form input[type="radio"]:checked+label::before {
+    background-color: #00ffcc;
+}
+
+form label:hover {
+    border-color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.09);
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+    .login {
+        width: 95%;
+        padding: 11px 9px;
+    }
+}

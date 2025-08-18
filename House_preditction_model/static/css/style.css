@@ -37,20 +37,20 @@ body {
         radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
         radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px),
         linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
-    background-size:
+        background-size:
         cover,            /* house image */
         550px 550px,
         350px 350px,
         250px 250px,
         150px 150px,
         100% 100%;
-    background-position:
+        background-position:
         center,
         0 0, 40px 60px, 130px 270px, 70px 100px, 0 0;
-    background-attachment:
+        background-attachment:
         fixed,            /* keep house image fixed for subtle parallax */
         scroll, scroll, scroll, scroll, scroll;
-    animation: backgroundShift 20s ease-in-out infinite;
+        animation: backgroundShift 20s ease-in-out infinite;
 
     /* Soften/contrast over photo for readability */
     backdrop-filter: none; /* body backdrop not needed; container uses blur */

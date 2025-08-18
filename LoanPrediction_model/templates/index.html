@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>House Price Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="login">
+    <h1>Loan Approval Prediction</h1>
+    <!-- Form for loan approval prediction -->
+    <form action="{{ url_for('predict')}}" method="post">
+
+      <!-- Applicant's Income -->
+      <input type="number" step="any" name="ApplicantIncome" placeholder="Enter Applicant Income (₹)"
+        required="required" min="0" />
+
+      <!-- Coapplicant's Income -->
+      <input type="number" step="any" name="CoapplicantIncome" placeholder="Enter Co-applicant Income (₹)"
+        required="required" min="0" />
+
+      <!-- Loan Amount -->
+      <input type="number" step="any" name="LoanAmount" placeholder="Enter Loan Amount (₹ in Thousands)"
+        required="required" min="0" />
+
+      <!-- Loan Term -->
+      <input type="number" name="Loan_Amount_Term" placeholder="Enter Loan Term (in months)" required="required"
+        min="0" />
+
+      <!-- Credit History -->
+      <p>Credit History:</p>
+      <input type="radio" id="good" name="Credit_History" value="1" required>
+      <label for="good">Good (1)</label>
+
+      <input type="radio" id="bad" name="Credit_History" value="0">
+      <label for="bad">Bad (0)</label>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict Approval</button>
+    </form>
+
+    <br><br>
+    <h3>{{ prediction_text }}</h3>
+  </div>
+</body>
+
+</html>
